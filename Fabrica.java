@@ -25,9 +25,6 @@ public class Fabrica {
         this.cantEstadosBack = 0;
         backProduccion(0, cantPiezasProducir, 0, new ArrayList<Maquina>(), resultado);
 
-        if(resultado.isEmpty()){
-            System.out.println("No se encontró solución con backtracking");
-        }
         return resultado;
     }
 
@@ -98,9 +95,6 @@ public class Fabrica {
             this.cantCandidatosConsiderados = 0;
             greedyProduccion(resultado, maquinas, cantPiezasProducir);
 
-            if(resultado.isEmpty()){
-                System.out.println("No se encontró solución con greedy");
-            }
 
             return resultado;
         }

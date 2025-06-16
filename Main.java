@@ -11,6 +11,10 @@ public class Main {
 
         List<Maquina> resultadoBacktracking = fabrica.backProduccion(cantPiezasAProducir);
 
+
+        if(resultadoBacktracking.isEmpty()){
+            System.out.println("No se encontró solución con backtracking");
+        }else{
         System.out.println("Backtracking");
         System.out.println("Solución obtenida:");
         for (Maquina m : resultadoBacktracking) {
@@ -18,18 +22,22 @@ public class Main {
         }
         System.out.println("Solución obtenida: Cantidad piezas producidas:" + fabrica.getCantPiezasProducidas(resultadoBacktracking) + " Cantidad de puestas en funcionamiento: " + fabrica.getCantMaquinasEnFuncionamiento(resultadoBacktracking));
         System.out.println("Cantidad de estados generados: " + fabrica.getCantEstadosBack());
+        }
 
         //GREEDY
 
         List<Maquina> resultadoGreedy = fabrica.greedyProduccion(cantPiezasAProducir);
 
-        System.out.println("Greedy");
-        System.out.println("Solución obtenida:");
-        for (Maquina m : resultadoGreedy) {
-            System.out.println(m);
+        if(resultadoGreedy.isEmpty()){
+            System.out.println("No se encontró solución con backtracking");
+        }else {
+            System.out.println("Greedy");
+            System.out.println("Solución obtenida:");
+            for (Maquina m : resultadoGreedy) {
+                System.out.println(m);
+            }
+            System.out.println("Solución obtenida: Cantidad piezas producidas:" + fabrica.getCantPiezasProducidas(resultadoGreedy) + " Cantidad de puestas en funcionamiento: " + fabrica.getCantMaquinasEnFuncionamiento(resultadoGreedy));
+            System.out.println("Cantidad de candidatos considerados: " + fabrica.getCantCandidatosConsiderados());
         }
-        System.out.println("Solución obtenida: Cantidad piezas producidas:" + fabrica.getCantPiezasProducidas(resultadoGreedy) + " Cantidad de puestas en funcionamiento: " + fabrica.getCantMaquinasEnFuncionamiento(resultadoGreedy));
-        System.out.println("Cantidad de candidatos considerados: " + fabrica.getCantCandidatosConsiderados());
-
     }
 }
