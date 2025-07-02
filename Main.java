@@ -29,7 +29,7 @@ public class Main {
         List<Maquina> resultadoGreedy = fabrica.greedyProduccion(cantPiezasAProducir);
 
         if(resultadoGreedy.isEmpty()){
-            System.out.println("No se encontró solución con backtracking");
+            System.out.println("No se encontró solución con greedy");
         }else {
             System.out.println("Greedy");
             System.out.println("Solución obtenida:");

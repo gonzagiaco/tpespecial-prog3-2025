@@ -93,15 +93,17 @@ public class Fabrica {
         public List<Maquina> greedyProduccion(int cantPiezasProducir) {
             List<Maquina> resultado = new ArrayList<>();
             this.cantCandidatosConsiderados = 0;
-            greedyProduccion(resultado, maquinas, cantPiezasProducir);
+            int cantPiezasActual = 0;
+            greedyProduccion(resultado, maquinas, cantPiezasProducir, cantPiezasActual);
 
-
+            if(cantPiezasActual != cantPiezasProducir){
+                return new ArrayList<>();
+            }
             return resultado;
         }
 
-        private void greedyProduccion(List<Maquina> resultado, List<Maquina> maquinasCandidatas, int cantPiezasProducir) {
+        private void greedyProduccion(List<Maquina> resultado, List<Maquina> maquinasCandidatas, int cantPiezasProducir, int cantPiezasActual) {
             Collections.sort(maquinasCandidatas);
-            int cantPiezasActual = 0;
 
             while(!maquinasCandidatas.isEmpty() && !esSolucion(cantPiezasActual, cantPiezasProducir)){
 
